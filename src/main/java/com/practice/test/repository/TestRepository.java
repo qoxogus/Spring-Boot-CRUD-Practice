@@ -1,8 +1,6 @@
 package com.practice.test.repository;
 
-import com.practice.test.Test;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.practice.test.domain.Test;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

@@ -1,8 +1,9 @@
-package com.practice.test;
+package com.practice.test.domain;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,9 +11,10 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Test {
+public class Member {
 
     @Id @GeneratedValue
+    @Column(name = "member_id")
     private Long id;
-    private String username;
+    private String name;
 }
