@@ -28,6 +28,17 @@ public class MemberService {
 
     }
 
+    public Member update(String reName) {
+        Member member = new Member();
+        member.setName(reName);
+        Member updated = memberRepository.save(member);
+        return updated;
+    }
+
+    public void delete(Long id) {
+        memberRepository.deleteById(id);
+    }
+
     @Transactional
     public Member save(Member member) {
         return memberRepository.save(member);

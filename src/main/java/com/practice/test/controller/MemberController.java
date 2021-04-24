@@ -4,10 +4,12 @@ import com.practice.test.domain.Member;
 import com.practice.test.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.spring.web.json.Json;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -34,5 +36,15 @@ public class MemberController {
     @GetMapping("/read/{id}")
     public Optional<Member> findByMemberId(@PathVariable("id") Long id) {
         return memberService.findById(id);
+    }
+
+//    @PutMapping("/update/{name}")
+//    public Member updateMember(@PathVariable("name") String name, @RequestBody String reName) {
+//        return memberService.update(reName);
+//    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteMember(@PathVariable("id") Long id) {
+        memberService.delete(id);
     }
 }
