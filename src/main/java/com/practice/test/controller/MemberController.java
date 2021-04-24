@@ -1,15 +1,12 @@
 package com.practice.test.controller;
 
 import com.practice.test.domain.Member;
+import com.practice.test.dto.MemberResponseDto;
+import com.practice.test.dto.MemberSaveRequestDto;
+import com.practice.test.dto.MemberUpdateRequestDto;
 import com.practice.test.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.spring.web.json.Json;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -19,32 +16,27 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/save")
-    public Member saveMember(@RequestBody Member member) {
-        return memberService.save(member);
-    }
-
-    @GetMapping("/read")
-    public List<Member> findAllMember() {
-        List<Member> list = new ArrayList<>();
-        Iterable<Member> iterable = memberService.findAll();
-        for (Member member : iterable) {
-            list.add(member);
-        }
-        return list;
+    public Long saveMember(@RequestBody MemberSaveRequestDto requestDto) {
+        return memberService.save(requestDto);
     }
 
     @GetMapping("/read/{id}")
-    public Optional<Member> findByMemberId(@PathVariable("id") Long id) {
+    public MemberResponseDto findByMemberId(@PathVariable Long id) {
         return memberService.findById(id);
     }
 
-//    @PutMapping("/update/{name}")
-//    public Member updateMember(@PathVariable("name") String name, @RequestBody String reName) {
-//        return memberService.update(reName);
-//    }
+    @PutMapping("/update/{id}")
+    public Long update(@PathVariable Long id, @RequestBody MemberUpdateRequestDto requestDto) {
+        return memberService.update(id, requestDto);
+    }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteMember(@PathVariable("id") Long id) {
+    public void deleteMember(@PathVariable Long id) {
         memberService.delete(id);
+    }
+
+    @PostMapping("/login")
+    public Member login(@RequestBody String name) {
+        return memberService.login(name);
     }
 }
