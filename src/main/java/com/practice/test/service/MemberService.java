@@ -11,9 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -21,10 +18,9 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     //save
-    @Transactional
     public Long save(MemberSaveRequestDto requestDto) {
         //같은 이름의 회원이 있다면 회원가입X
-        //name이 PK는 아닌데 id를 GeneratedValue로 지정해서 이름으로 지정함
+        //name이 PK는 아닌데 id를 GeneratedValue로 지정해서 dto로 선언해놓지 않았기 때문에 이름으로 지정함
         if(memberRepository.findByName(requestDto.getName()) != null) {
             throw new UserAlreadyExistsException();
         }
