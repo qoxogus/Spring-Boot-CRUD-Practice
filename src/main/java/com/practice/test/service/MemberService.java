@@ -45,8 +45,9 @@ public class MemberService {
     }
 
     //delete
-    public void delete(Long id) {
+    public String  delete(Long id) {
         memberRepository.deleteById(id);
+        return "deleted "+id+"ID member";
     }
 
     //login

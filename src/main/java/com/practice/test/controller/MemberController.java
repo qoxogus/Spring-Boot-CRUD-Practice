@@ -31,8 +31,8 @@ public class MemberController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteMember(@PathVariable Long id) {
-        memberService.delete(id);
+    public String deleteMember(@PathVariable Long id) {
+        return memberService.delete(id);
     }
 
     @PostMapping("/login")
