@@ -22,7 +22,7 @@ public class Member {
     @Column(name = "member_password")
     private String password;
 
-    @Builder
+    @Builder //MemberSaveRequestDto -> builder()
     public Member(Long id, String name, String password) {
         this.id = id;
         this.name = name;

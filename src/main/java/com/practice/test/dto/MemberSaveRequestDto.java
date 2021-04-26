@@ -13,12 +13,6 @@ public class MemberSaveRequestDto {
     private String name;
     private String password;
 
-    @Builder
-    public MemberSaveRequestDto(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
-
     public Member toEntity() {
         return Member.builder()
                 .name(name)

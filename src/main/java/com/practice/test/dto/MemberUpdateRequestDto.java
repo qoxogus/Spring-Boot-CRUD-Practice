@@ -10,10 +10,4 @@ public class MemberUpdateRequestDto {
 
     private String name;
     private String password;
-
-    @Builder
-    public MemberUpdateRequestDto(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
 }

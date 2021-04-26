@@ -35,7 +35,7 @@ public class MemberService {
     }
 
     //update
-    @Transactional
+    @Transactional //내가 따로 만든 update메소드이기 때문에 트렌잭션 어노테이션을 붙여 변경감지가 동작되게 해준다
     public Long update(Long id, MemberUpdateRequestDto requestDto) {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException());
