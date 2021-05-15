@@ -29,7 +29,7 @@ public class MemberService {
 
     //read
     public MemberResponseDto findById(Long id) {
-        Member entity = memberRepository.findById(id)
+        Member entity = memberRepository.findById(id)  // <- 여기서 NULL이 터지면 orElseThrow실행
                 .orElseThrow(() -> new UserNotFoundException());
         return new MemberResponseDto(entity); //id, name password
     }
@@ -45,7 +45,7 @@ public class MemberService {
     }
 
     //delete
-    public String  delete(Long id) {
+    public String delete(Long id) {
         memberRepository.deleteById(id);
         return "deleted "+id+"ID member";
     }
