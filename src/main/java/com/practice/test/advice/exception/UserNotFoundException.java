@@ -1,4 +1,4 @@
-package com.practice.test.exception;
+package com.practice.test.advice.exception;
 
 public class UserNotFoundException extends RuntimeException{
     public UserNotFoundException(String msg, Throwable t){

@@ -1,4 +1,4 @@
-package com.practice.test.exception;
+package com.practice.test.advice.exception;
 
 public class UserAlreadyExistsException extends RuntimeException{
     public UserAlreadyExistsException(String msg, Throwable t){

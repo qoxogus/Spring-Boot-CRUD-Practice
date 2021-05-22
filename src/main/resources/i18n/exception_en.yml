@@ -1,0 +1,16 @@
+# exception_en.yml
+unKnown:
+  code: "-9999"
+  msg: "An unknown error has occurred."
+
+userNotFound:
+  code: "-1000"
+  msg: "This member not exist"
+
+userAlreadyExists:
+  code: "-400"
+  msg: "The user already exists."
+
+userLoginFailed:
+  code: "-401"
+  msg: "Login Failed."

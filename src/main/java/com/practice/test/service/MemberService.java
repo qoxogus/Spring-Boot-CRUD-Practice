@@ -4,12 +4,14 @@ import com.practice.test.domain.Member;
 import com.practice.test.dto.MemberResponseDto;
 import com.practice.test.dto.MemberSaveRequestDto;
 import com.practice.test.dto.MemberUpdateRequestDto;
-import com.practice.test.exception.UserAlreadyExistsException;
-import com.practice.test.exception.UserNotFoundException;
+import com.practice.test.advice.exception.UserAlreadyExistsException;
+import com.practice.test.advice.exception.UserNotFoundException;
 import com.practice.test.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.validation.constraints.NotBlank;
 
 @Service
 @RequiredArgsConstructor
