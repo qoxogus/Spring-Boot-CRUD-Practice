@@ -31,7 +31,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'net.rakugakibox.util:yaml-resource-bundle:1.1'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-//	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.3.4.RELEASE'
 }
 
 test {
